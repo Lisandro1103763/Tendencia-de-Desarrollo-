@@ -1,0 +1,39 @@
+using System;
+
+class AntTrailSimulation
+{
+    static void Main(string[] args)
+    {
+        string trail = "..ant..ant.ant...ant.ant..ant.ant....ant..ant.ant.ant...ant..";
+        Console.WriteLine("Original Ant Trail:");
+        Console.WriteLine(trail);
+
+        // Simulate the rumor of a dropped chicken sandwich
+        Console.WriteLine("\nRumor of a Dropped Chicken Sandwich!");
+        trail = trail.Replace("ant", "nat");
+
+        // Simulate the ant stampede
+        Console.WriteLine("\nAnt Stampede!");
+        trail = ScatterAnts(trail);
+
+        Console.WriteLine("\nResulting Carnage:");
+        Console.WriteLine(trail);
+    }
+
+    static string ScatterAnts(string trail)
+    {
+        char[] trailChars = trail.ToCharArray();
+        Random random = new Random();
+
+        for (int i = 0; i < trailChars.Length; i++)
+        {
+            if (trailChars[i] == 'a')
+            {
+                // Simulate trampled ants by replacing them with random characters
+                trailChars[i] = (char)random.Next(97, 123); // ASCII code for lowercase letters
+            }
+        }
+
+        return new string(trailChars);
+    }
+}
