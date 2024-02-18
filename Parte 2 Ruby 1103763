@@ -1,0 +1,44 @@
+# Define una función para calcular la diferencia de goles
+def diferencia_goles(goals_for, goals_against)
+  return (goals_for - goals_against).abs
+end
+
+# Define los datos proporcionados
+datos = [
+  ["Arsenal", 79, 36],
+  ["Liverpool", 67, 30],
+  ["Manchester_U", 87, 45],
+  ["Newcastle", 74, 52],
+  ["Leeds", 53, 37],
+  ["Chelsea", 66, 38],
+  ["West_Ham", 48, 57],
+  ["Aston_Villa", 46, 47],
+  ["Tottenham", 49, 53],
+  ["Blackburn", 55, 51],
+  ["Southampton", 46, 54],
+  ["Middlesbrough", 35, 47],
+  ["Fulham", 36, 44],
+  ["Charlton", 38, 49],
+  ["Everton", 45, 57],
+  ["Bolton", 44, 62],
+  ["Sunderland", 29, 51],
+  ["Ipswich", 41, 64],
+  ["Derby", 33, 63],
+  ["Leicester", 30, 64]
+]
+
+# Inicializa variables para almacenar el equipo con la menor diferencia de goles y la menor diferencia encontrada
+equipo_menor_diferencia = nil
+menor_diferencia = nil
+
+# Itera sobre los datos para encontrar el equipo con la menor diferencia de goles
+datos.each do |equipo, goles_a_favor, goles_en_contra|
+  diferencia_actual = diferencia_goles(goles_a_favor, goles_en_contra)
+  if menor_diferencia.nil? || diferencia_actual < menor_diferencia
+    equipo_menor_diferencia = equipo
+    menor_diferencia = diferencia_actual
+  end
+end
+
+# Imprime el resultado
+puts "El equipo con la menor diferencia de goles es: #{equipo_menor_diferencia}"
