@@ -1,13 +1,13 @@
-# Define una función para calcular la diferencia de temperatura
+# Se define una función para calcular la diferencia de temperatura
 def temperatura_diferencia(max_temp, min_temp)
   return (max_temp - min_temp).abs
 end
 
-# Inicializa variables para almacenar el día con la menor diferencia y la menor diferencia encontrada
+# Se declaran las variables para almacenar el día con la menor diferencia y la menor diferencia encontrada
 dia_menor_diferencia = nil
 menor_diferencia = nil
 
-# Define los datos proporcionados
+# Se definen los datos proporcionados
 datos = [
   [1, 88, 59],
   [2, 79, 63],
@@ -41,8 +41,6 @@ datos = [
   [30, 90, 45]
 ]
 
-# Itera sobre los datos para encontrar la menor diferencia de temperatura
-datos.each do |dia, max_temp, min_temp|
   diferencia_actual = temperatura_diferencia(max_temp, min_temp)
   if menor_diferencia.nil? || diferencia_actual < menor_diferencia
     dia_menor_diferencia = dia
@@ -50,5 +48,5 @@ datos.each do |dia, max_temp, min_temp|
   end
 end
 
-# Imprime el resultado
+# Resultado
 puts "El día con la menor diferencia de temperatura es el día #{dia_menor_diferencia} con una diferencia de #{menor_diferencia} grados."
